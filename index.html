@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rodrigo Ackerman — Asesor de Seguros</title>
+<meta name="description" content="¿Tenés seguro o estás realmente asegurado? Rodrigo Ackerman, asesor de seguros. Te explico en 5 minutos."/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1638523110411565');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638523110411565&ev=PageView&noscript=1"/></noscript>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --azul:#0f2748;
+  --azul-mid:#1a3a6e;
+  --verde:#8DC63F;
+  --verde-dark:#6fa32e;
+  --blanco:#fff;
+  --crema:#f7f5f0;
+  --gris:#64748b;
+  --font:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--blanco);color:var(--azul);overflow-x:hidden;}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:20px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .35s;
+}
+.nav.solid{
+  background:rgba(15,39,72,0.96);
+  backdrop-filter:blur(20px);
+  padding:14px 56px;
+}
+.nav-logo{height:56px;filter:none;background:#fff;border-radius:8px;padding:4px 8px;}
+.nav-cta{
+  background:var(--verde);color:#fff;
+  font-family:var(--font);font-weight:700;font-size:13px;
+  padding:10px 22px;border-radius:50px;
+  text-decoration:none;transition:all .2s;
+  letter-spacing:.3px;
+}
+.nav-cta:hover{background:var(--verde-dark);transform:translateY(-1px);}
+@media(max-width:600px){.nav{padding:14px 20px;}.nav.solid{padding:10px 20px;}}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:var(--azul);
+  display:grid;
+  grid-template-columns:55% 45%;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-texture{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(141,198,63,0.06) 1px, transparent 1px);
+  background-size:32px 32px;
+  pointer-events:none;
+}
+.hero-glow{
+  position:absolute;
+  top:-200px;right:-100px;
+  width:700px;height:700px;
+  background:radial-gradient(ellipse, rgba(141,198,63,0.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+.hero-left{
+  position:relative;z-index:2;
+  padding:140px 56px 100px 80px;
+}
+.hero-kicker{
+  font-size:11px;font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;color:var(--verde);
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;
+  opacity:0;animation:up .6s .1s ease forwards;
+}
+.hero-kicker::before{content:'';width:28px;height:2px;background:var(--verde);}
+
+.hero-h1{
+  font-size:clamp(38px,4.5vw,66px);
+  font-weight:900;
+  color:#fff;
+  line-height:1.05;
+  letter-spacing:-2.5px;
+  margin-bottom:28px;
+  opacity:0;animation:up .6s .25s ease forwards;
+}
+.hero-h1 .verde{color:var(--verde);}
+.hero-h1 .italic{font-style:italic;font-weight:300;color:rgba(255,255,255,0.55);font-size:85%;}
+
+.hero-divider{
+  width:48px;height:3px;
+  background:var(--verde);
+  border-radius:2px;
+  margin-bottom:24px;
+  opacity:0;animation:up .6s .38s ease forwards;
+}
+
+.hero-sub{
+  font-size:clamp(15px,1.6vw,17px);
+  color:rgba(255,255,255,0.62);
+  line-height:1.85;
+  max-width:460px;
+  margin-bottom:44px;
+  font-weight:400;
+  text-align:center;
+  opacity:0;animation:up .6s .45s ease forwards;
+}
+.hero-sub strong{color:#fff;font-weight:600;}
+
+.hero-btn-wrap{
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  opacity:0;animation:up .6s .58s ease forwards;
+}
+.btn-principal{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--verde);color:#fff;
+  font-family:var(--font);font-weight:800;
+  font-size:clamp(14px,1.6vw,16px);
+  padding:17px 34px;border-radius:50px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s;
+  box-shadow:0 8px 28px rgba(141,198,63,0.3);
+  letter-spacing:.2px;
+}
+.btn-principal:hover{background:var(--verde-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(141,198,63,0.45);}
+.btn-micro{font-size:11px;color:rgba(255,255,255,0.38);font-weight:500;letter-spacing:.3px;}
+
+.hero-trust{
+  display:flex;gap:20px;flex-wrap:wrap;
+  margin-top:52px;padding-top:32px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  opacity:0;animation:up .6s .7s ease forwards;
+}
+.trust-chip{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:.2px;
+}
+.trust-chip span{font-size:15px;}
+
+/* FOTO HERO */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 40px 0 0;
+  height:100%;
+  opacity:0;animation:fadeIn .9s .3s ease forwards;
+}
+.foto-contenedor{
+  position:relative;
+  width:100%;
+  max-width:360px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+.foto-img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  filter:grayscale(10%) contrast(1.05);
+  position:relative;z-index:1;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.foto-nombre{
+  text-align:center;
+  padding:8px 0;
+  z-index:2;
+}
+.foto-badge-inline{
+  display:flex;align-items:center;gap:8px;
+  justify-content:center;
+  margin-top:6px;
+}
+.foto-badge-inline .foto-badge-num{font-size:18px;font-weight:900;color:var(--verde);}
+.foto-badge-inline .foto-badge-lab{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;}
+.foto-nombre-texto{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.3px;}
+.foto-nombre-sub{font-size:11px;font-weight:600;color:var(--verde);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;}
+  .hero-left{padding:110px 24px 48px;}
+  .hero-kicker{justify-content:center;}
+  .hero-btn-wrap{align-items:center;}
+  .hero-trust{justify-content:center;}
+  .hero-right{display:none;}
+}
+
+/* MITO */
+.mito{
+  background:var(--crema);
+  padding:100px 24px;
+}
+.mito-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.mito-cita{
+  position:relative;
+  padding:40px;
+  background:var(--azul);
+  border-radius:24px;
+  overflow:hidden;
+}
+.mito-cita::before{
+  content:'"';
+  position:absolute;top:-20px;left:20px;
+  font-size:140px;font-weight:900;
+  color:rgba(141,198,63,0.12);
+  line-height:1;font-family:Georgia,serif;
+  pointer-events:none;
+}
+.mito-cita-texto{
+  font-size:clamp(18px,2.5vw,26px);
+  font-weight:800;color:#fff;
+  line-height:1.35;letter-spacing:-.5px;
+  position:relative;z-index:1;
+}
+.mito-cita-texto span{color:var(--verde);}
+.mito-cita-autor{
+  margin-top:24px;
+  font-size:12px;font-weight:600;
+  color:rgba(255,255,255,0.4);
+  letter-spacing:2px;text-transform:uppercase;
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:10px;
+}
+.mito-cita-autor::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.3);}
+
+.mito-texto{}
+.mito-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.mito-label::before{content:'';width:24px;height:2px;background:var(--verde);}
+.mito-titulo{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--azul);line-height:1.2;letter-spacing:-.5px;margin-bottom:20px;}
+.mito-titulo span{color:var(--verde);}
+.mito-p{font-size:15px;color:var(--gris);line-height:1.85;margin-bottom:16px;}
+.mito-p strong{color:var(--azul);}
+@media(max-width:760px){.mito-inner{grid-template-columns:1fr;gap:40px;}}
+
+/* HISTORIA */
+.historia{
+  background:var(--azul);
+  padding:100px 24px;
+  position:relative;overflow:hidden;
+}
+.historia::after{
+  content:'';position:absolute;
+  bottom:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:rgba(141,198,63,0.04);
+  pointer-events:none;
+}
+.historia-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.hist-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde);margin-bottom:20px;}
+.hist-titulo{font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-1px;margin-bottom:48px;}
+.hist-titulo span{color:var(--verde);}
+
+.hist-bloques{display:flex;flex-direction:column;gap:0;text-align:left;max-width:620px;margin:0 auto;}
+.hist-bloque{
+  display:flex;gap:24px;
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.hist-bloque:last-child{border-bottom:none;}
+.hist-num{
+  font-size:13px;font-weight:900;color:var(--verde);
+  opacity:.4;flex-shrink:0;margin-top:2px;
+  letter-spacing:1px;
+}
+.hist-p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.85;}
+.hist-p strong{color:#fff;}
+.hist-p em{color:var(--verde);font-style:italic;}
+
+.hist-firma{
+  margin-top:48px;
+  display:inline-flex;align-items:center;gap:16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:50px;
+  padding:14px 24px;
+}
+.hist-firma-avatar{
+  width:40px;height:40px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--verde);flex-shrink:0;
+}
+.hist-firma-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.hist-firma-texto{font-size:13px;color:rgba(255,255,255,0.6);font-weight:500;}
+.hist-firma-texto strong{color:#fff;display:block;font-size:14px;}
+
+/* NUMEROS */
+.numeros{background:var(--verde);padding:0;}
+.numeros-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.num-item{padding:36px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.2);transition:background .3s;}
+.num-item:last-child{border-right:none;}
+.num-item:hover{background:rgba(255,255,255,0.1);}
+.num-val{font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;}
+.num-lab{font-size:11px;font-weight:700;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;}
+@media(max-width:580px){
+  .numeros-inner{grid-template-columns:1fr 1fr;}
+  .num-item{border-bottom:1px solid rgba(255,255,255,0.2);}
+  .num-item:nth-child(2n){border-right:none;}
+  .num-item:nth-last-child(-n+2){border-bottom:none;}
+}
+
+/* TESTIMONIOS */
+.testimonios{background:var(--blanco);padding:100px 24px;}
+.test-header{text-align:center;max-width:580px;margin:0 auto 64px;}
+.test-kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde);margin-bottom:14px;}
+.test-titulo{font-size:clamp(24px,4vw,38px);font-weight:900;color:var(--azul);line-height:1.15;letter-spacing:-.5px;margin-bottom:12px;}
+.test-sub{font-size:15px;color:var(--gris);line-height:1.7;font-style:italic;}
+.test-sub span{color:var(--azul);font-weight:700;font-style:normal;}
+
+.test-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.test-card{border-radius:20px;overflow:hidden;border:1.5px solid rgba(15,39,72,0.08);transition:all .3s;}
+.test-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(15,39,72,0.1);}
+
+.test-video{
+  background:var(--azul);
+  aspect-ratio:4/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.test-video::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(141,198,63,0.12) 0%,transparent 65%);}
+.play{
+  width:56px;height:56px;
+  background:rgba(255,255,255,0.1);
+  border:2px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;position:relative;z-index:1;
+}
+.test-card:hover .play{background:var(--verde);border-color:var(--verde);}
+.play svg{width:20px;height:20px;fill:#fff;margin-left:4px;}
+.test-video-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);position:relative;z-index:1;}
+
+.test-body{padding:24px;}
+.test-quote{
+  font-size:14px;color:var(--azul);line-height:1.75;
+  margin-bottom:14px;font-style:italic;
+  padding-left:16px;position:relative;
+}
+.test-quote::before{
+  content:'"';position:absolute;left:0;top:-4px;
+  font-size:28px;color:var(--verde);
+  font-style:normal;font-weight:900;line-height:1;
+}
+.test-autor{font-size:12px;font-weight:700;color:var(--gris);}
+.test-tag{display:inline-block;background:rgba(141,198,63,0.1);color:var(--verde-dark);border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;margin-top:8px;letter-spacing:.5px;}
+@media(max-width:700px){.test-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto;}}
+
+/* CTA CENTRAL */
+.cta-central{
+  background:var(--crema);
+  padding:100px 24px;
+  text-align:center;
+}
+.ctac-inner{max-width:620px;margin:0 auto;}
+.ctac-titulo{font-size:clamp(26px,4vw,44px);font-weight:900;color:var(--azul);line-height:1.15;letter-spacing:-1px;margin-bottom:16px;}
+.ctac-titulo span{color:var(--verde);}
+.ctac-sub{font-size:16px;color:var(--gris);line-height:1.8;margin-bottom:40px;}
+.ctac-sub strong{color:var(--azul);}
+.ctac-datos{
+  margin-top:48px;padding-top:36px;
+  border-top:1px solid rgba(15,39,72,0.1);
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  text-align:left;
+}
+.ctac-dato{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gris);}
+.ctac-dato a{color:var(--gris);text-decoration:none;}
+.ctac-dato a:hover{color:var(--verde);}
+.ctac-dato-icon{width:36px;height:36px;background:var(--azul);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+@media(max-width:500px){.ctac-datos{grid-template-columns:1fr;}}
+
+/* FOOTER */
+footer{background:#070d1a;padding:40px 24px;}
+.footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{height:38px;filter:brightness(0) invert(1);opacity:.5;}
+.footer-info{font-size:12px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.8;}
+.footer-info a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.footer-legal{font-size:11px;color:rgba(255,255,255,0.18);}
+.footer-redes{display:flex;gap:16px;justify-content:center;margin:16px 0;}
+.red-icon{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:all .2s;}
+.red-icon:hover{background:var(--verde);transform:translateY(-2px);}
+.red-icon svg{width:20px;height:20px;}
+.footer-mapa{margin:20px 0;border-radius:12px;overflow:hidden;}
+
+/* WA FLOTANTE */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;
+  width:52px;height:52px;
+  background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,0.5);
+  z-index:999;transition:all .3s;
+}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:26px;height:26px;fill:#fff;}
+
+/* ANIMACIONES */
+@keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+.wa-path{fill:currentColor;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <img src="LOGO_DEFINITIVO.png" alt="RA Asesor de Seguros" class="nav-logo"/>
+  <a href="https://wa.me/5493424681710?text=Hola%20Rodrigo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20charlar" target="_blank" class="nav-cta">Hablemos →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-kicker">Rodrigo Ackerman · Asesor de Seguros</div>
+
+    <h1 class="hero-h1">
+      ¿Tenés seguro…<br/>
+      o estás <span class="verde">realmente</span><br/>
+      <span class="italic">asegurado?</span>
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-sub">
+      Todo el mundo dice que el seguro no sirve.<br/>
+      Yo digo que el problema no es el seguro —<br/>
+      <strong>es no entender lo que tenés.</strong>
+    </p>
+
+    <div class="hero-btn-wrap">
+      <a href="https://wa.me/5493424681710?text=Hola%20Rodrigo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20charlar" target="_blank" class="btn-principal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hablemos. Te explico en 5 minutos.
+      </a>
+      <p class="btn-micro">Por WhatsApp · Sin compromiso · Te respondo yo</p>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-chip"><span>🛡️</span> +6 años</div>
+      <div class="trust-chip"><span>📋</span> +300 pólizas</div>
+      <div class="trust-chip"><span>📍</span> Franck, Santa Fe · Todo el país</div>
+      <div class="trust-chip"><span>🏛️</span> Mat. 95171 · SSN</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="foto-contenedor">
+      <img
+        src="rodrigo.png"
+        alt="Rodrigo Ackerman"
+        class="foto-img"
+        onerror="this.style.display='none'"/>
+      <div class="foto-nombre">
+        <div class="foto-nombre-texto">Rodrigo Ackerman</div>
+        <div class="foto-nombre-sub">Asesor de Seguros</div>
+        <div class="foto-badge-inline">
+          <span class="foto-badge-num">+300</span>
+          <span class="foto-badge-lab">Pólizas gestionadas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL MITO -->
+<section class="mito">
+  <div class="mito-inner">
+    <div class="mito-cita rev">
+      <div class="mito-cita-texto">
+        "El seguro hay que tenerlo... pero ojalá nunca lo tengas que usar."
+      </div>
+      <div class="mito-cita-autor">Lo que todos dicen</div>
+    </div>
+    <div class="rev d2">
+      <p class="mito-label">La verdad</p>
+      <h2 class="mito-titulo">El problema no es<br/>el seguro. <span>Es que nadie</span><br/>te lo explicó bien.</h2>
+      <p class="mito-p">Y no es tu culpa. Nadie te lo explicó bien. Te vendieron una póliza, te dieron un papel y listo.</p>
+      <p class="mito-p"><strong>Mi trabajo es que eso no pase.</strong> Que cuando contratés un seguro, sepas exactamente qué compraste. Y que cuando llegue el momento de usarlo, no haya sorpresas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="historia">
+  <div class="historia-inner">
+    <p class="hist-label rev">Mi historia</p>
+    <h2 class="hist-titulo rev">Crecí en el campo.<br/>Y un hombre me enseñó<br/><span>lo que es un seguro de verdad.</span></h2>
+
+    <div class="hist-bloques">
+      <div class="hist-bloque rev d1">
+        <span class="hist-num">01</span>
+        <p class="hist-p">Crecí viendo a mi familia trabajar duro. El campo te enseña eso — que nada viene fácil y que todo lo que tenés lo ganaste con esfuerzo real.</p>
+      </div>
+      <div class="hist-bloque rev d2">
+        <span class="hist-num">02</span>
+        <p class="hist-p">Una vez al mes llegaba un hombre que yo no terminaba de entender. Venía, cobraba algo, dejaba un papel y se iba. Sin hacer ruido. Era un productor asesor de seguros — aunque yo tardé años en entender qué significaba eso.</p>
+      </div>
+      <div class="hist-bloque rev d3">
+        <span class="hist-num">03</span>
+        <p class="hist-p">Lo que hacía era simple y enorme al mismo tiempo: cuidaba el sacrificio de mi familia. Se aseguraba de que si algo pasaba, todo ese esfuerzo no se perdiera de un día para el otro. Esa figura me marcó. Hoy estoy lejos del campo, pero ese espíritu me sigue. Porque sé lo que cuesta construir algo. <strong>¿Querés que trabajemos juntos para proteger lo que tanto te costó?</strong></p>
+      </div>
+    </div>
+
+    <div class="hist-firma rev d4">
+      <div class="hist-firma-avatar">
+        <img src="rodrigo.png" alt="Rodrigo" onerror="this.style.display='none'"/>
+      </div>
+      <div class="hist-firma-texto">
+        <strong>Rodrigo Ackerman</strong>
+        Franck, Santa Fe · Asesor de Seguros
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<div class="numeros rev">
+  <div class="numeros-inner">
+    <div class="num-item rev d1"><div class="num-val">+6</div><div class="num-lab">Años de experiencia</div></div>
+    <div class="num-item rev d2"><div class="num-val">+300</div><div class="num-lab">Pólizas gestionadas</div></div>
+    <div class="num-item rev d3"><div class="num-val">3</div><div class="num-lab">Compañías de primer nivel</div></div>
+    <div class="num-item rev d4"><div class="num-val">🇦🇷</div><div class="num-lab">Todo el país</div></div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios">
+  <div class="test-header rev">
+    <p class="test-kicker">Casos reales</p>
+    <h2 class="test-titulo">En el peor momento,<br/>no estuvieron solos.</h2>
+    <p class="test-sub"><span>Quizás pueda hacer lo mismo por vos.</span></p>
+  </div>
+
+  <div class="test-grid">
+    <div class="test-card rev d1">
+      <div class="test-video">
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/JUNmOeacqYY?playsinline=1" title="Testimonio Naty" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;display:block;"></iframe>
+      </div>
+      <div class="test-body">
+        <p class="test-quote">"Primero fue un siniestro en el hogar, y la respuesta fue inmediata. Eso me dio la confianza para contratar el seguro del auto también. Cuando tuve el segundo siniestro, ni me preocupé — ya sabía que Rodri lo resolvía."</p>
+        <div class="test-autor">Naty · Santa Fe</div>
+        <div class="test-tag">Hogar + Auto</div>
+      </div>
+    </div>
+
+    <div class="test-card rev d2">
+      <div class="test-video">
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/oFGAx562ULM?playsinline=1" title="Testimonio Emi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;display:block;"></iframe>
+      </div>
+      <div class="test-body">
+        <p class="test-quote">"Nunca había tenido un accidente. Fue aterrador. Pero la forma tranquila y concreta de Rodrigo de explicarme todo me ayudó a vivir el proceso de otra manera. Si no tenés seguro, contratá uno — y que sea él quien te lo explique."</p>
+        <div class="test-autor">Emi · Santa Fe</div>
+        <div class="test-tag">Automotor</div>
+      </div>
+    </div>
+
+    <div class="test-card rev d3">
+      <div class="test-video">
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Id00cv4VGE8?playsinline=1" title="Testimonio Javi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;display:block;"></iframe>
+      </div>
+      <div class="test-body">
+        <p class="test-quote">"Se me inundó el auto. El cable maestro, la computadora. Estaba muy angustiado por los costos. Rodrigo gestionó todo — los papeles, la cobertura, cada detalle. El seguro reconoció gran parte del arreglo. Siempre está presente."</p>
+        <div class="test-autor">Javi · Santa Fe</div>
+        <div class="test-tag">Automotor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-central">
+  <div class="ctac-inner rev">
+    <h2 class="ctac-titulo">¿Querés entender<br/>lo que <span>realmente tenés</span><br/>contratado?</h2>
+    <p class="ctac-sub">No te voy a vender nada.<br/><strong>Te voy a explicar.</strong> Eso es lo que hago.</p>
+    <a href="https://wa.me/5493424681710?text=Hola%20Rodrigo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20charlar%20sobre%20mi%20seguro" target="_blank" class="btn-principal" style="display:inline-flex;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hablemos por WhatsApp
+    </a>
+
+    <div class="ctac-datos">
+      <div class="ctac-dato"><div class="ctac-dato-icon">📱</div><a href="https://wa.me/5493424681710">+54 342 468-1710</a></div>
+      <div class="ctac-dato"><div class="ctac-dato-icon">✉️</div><a href="mailto:pas.rdgackerman@gmail.com">pas.rdgackerman@gmail.com</a></div>
+      <div class="ctac-dato"><div class="ctac-dato-icon">📍</div><span>Franck, Santa Fe · Todo el país</span></div>
+      <div class="ctac-dato"><div class="ctac-dato-icon">🏛️</div><span>Mat. N° 95171 · SSN</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="LOGO_DEFINITIVO.png" alt="RA" class="footer-logo"/>
+    <div class="footer-info">
+      Rodrigo Ackerman · Productor Asesor de Seguros · Mat. N° 95171 · SSN<br/>
+      Franck, Santa Fe · <a href="https://wa.me/5493424681710">+54 342 468-1710</a> · <a href="mailto:pas.rdgackerman@gmail.com">pas.rdgackerman@gmail.com</a>
+    </div>
+    <div class="footer-redes">
+      <a href="https://www.instagram.com/raasesordeseguros" target="_blank" class="red-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/raasesordeseguros" target="_blank" class="red-icon" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://wa.me/5493424681710" target="_blank" class="red-icon" title="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+    <div class="footer-mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.5!2d-60.9448929!3d-31.5939301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDM1JzM4LjEiUyA2MMKwNTYnNDEuNiJX!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" width="100%" height="200" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <p class="footer-legal">© 2026 raasesordeseguros.com</p>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<a href="https://wa.me/5493424681710?text=Hola%20Rodrigo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20charlar" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg>
+</a>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('solid',scrollY>60);});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');});},{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
