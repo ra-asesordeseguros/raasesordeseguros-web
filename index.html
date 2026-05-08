@@ -181,7 +181,15 @@ body{font-family:var(--font);background:var(--blanco);color:var(--azul);overflow
 .foto-nombre{
   position:absolute;
   bottom:0;left:0;right:0;
-  background:linear-gradient(to top, rgba(15,39,72,0.95) 0%, transparent 100%);
+  background:linear-gradient(to top, rgba(15,39,72,0.98) 0%, rgba(15,39,72,0.7) 60%, transparent 100%);
+  padding:28px 20px 20px;
+}
+.foto-badge-inline{
+  display:flex;align-items:center;gap:8px;
+  margin-top:8px;
+}
+.foto-badge-inline .foto-badge-num{font-size:18px;font-weight:900;color:var(--verde);}
+.foto-badge-inline .foto-badge-lab{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;}
   padding:40px 24px 24px;
   border-radius:0 0 0 0;
   z-index:2;
@@ -414,7 +422,7 @@ footer{background:#070d1a;padding:40px 24px;}
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <img src="https://mhibjvoqciczpyuadhnr.supabase.co/storage/v1/object/public/Polizas/logo_ra.png.png" alt="RA Asesor de Seguros" class="nav-logo"/>
+  <img src="LOGO_DEFINITIVO.png" alt="RA Asesor de Seguros" class="nav-logo"/>
   <a href="https://wa.me/5493424681710?text=Hola%20Rodrigo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20charlar" target="_blank" class="nav-cta">Hablemos →</a>
 </nav>
 
@@ -458,10 +466,6 @@ footer{background:#070d1a;padding:40px 24px;}
 
   <div class="hero-right">
     <div class="foto-contenedor">
-      <div class="foto-badge">
-        <div class="foto-badge-num">+300</div>
-        <div class="foto-badge-lab">Pólizas</div>
-      </div>
       <img
         src="rodrigo.jpg"
         alt="Rodrigo Ackerman"
@@ -470,6 +474,10 @@ footer{background:#070d1a;padding:40px 24px;}
       <div class="foto-nombre">
         <div class="foto-nombre-texto">Rodrigo Ackerman</div>
         <div class="foto-nombre-sub">Asesor de Seguros</div>
+        <div class="foto-badge-inline">
+          <span class="foto-badge-num">+300</span>
+          <span class="foto-badge-lab">Pólizas gestionadas</span>
+        </div>
       </div>
     </div>
   </div>
@@ -480,13 +488,13 @@ footer{background:#070d1a;padding:40px 24px;}
   <div class="mito-inner">
     <div class="mito-cita rev">
       <div class="mito-cita-texto">
-        "El seguro conviene… pero <span>te conviene no usarlo.</span>"
+        "El seguro hay que tenerlo... pero ojalá nunca lo tengas que usar."
       </div>
       <div class="mito-cita-autor">Lo que todos dicen</div>
     </div>
     <div class="rev d2">
       <p class="mito-label">La verdad</p>
-      <h2 class="mito-titulo">El problema no es<br/>el seguro. <span>Sos vos</span><br/>que no lo entendés.</h2>
+      <h2 class="mito-titulo">El problema no es<br/>el seguro. <span>Es que nadie</span><br/>te lo explicó bien.</h2>
       <p class="mito-p">Y no es tu culpa. Nadie te lo explicó bien. Te vendieron una póliza, te dieron un papel y listo.</p>
       <p class="mito-p"><strong>Mi trabajo es que eso no pase.</strong> Que cuando contratés un seguro, sepas exactamente qué compraste. Y que cuando llegue el momento de usarlo, no haya sorpresas.</p>
     </div>
@@ -502,15 +510,15 @@ footer{background:#070d1a;padding:40px 24px;}
     <div class="hist-bloques">
       <div class="hist-bloque rev d1">
         <span class="hist-num">01</span>
-        <p class="hist-p">De chico, en el campo, había una figura que aparecía una vez al mes. Un hombre. Llegaba, cruzaba unas palabras con mi mamá, cobraba algo, y se iba. No traía nada visible.</p>
+        <p class="hist-p">Crecí viendo a mi familia trabajar duro. El campo te enseña eso — que nada viene fácil y que todo lo que tenés lo ganaste con esfuerzo real.</p>
       </div>
       <div class="hist-bloque rev d2">
         <span class="hist-num">02</span>
-        <p class="hist-p">Durante años no entendí para qué venía. Era un <em>ritual silencioso</em>. Solo sabía que después de que se iba, algo quedaba en el aire. Algo que no se veía, pero estaba.</p>
+        <p class="hist-p">Una vez al mes llegaba un hombre que yo no terminaba de entender. Venía, cobraba algo, dejaba un papel y se iba. Sin hacer ruido. Era un productor asesor de seguros — aunque yo tardé años en entender qué significaba eso.</p>
       </div>
       <div class="hist-bloque rev d3">
         <span class="hist-num">03</span>
-        <p class="hist-p">Con el tiempo lo entendí. Lo que cobraba no era dinero. Era <strong>tranquilidad. La certeza de que si algo pasaba, mi familia no iba a estar sola.</strong> Eso es lo que hago hoy.</p>
+        <p class="hist-p">Lo que hacía era simple y enorme al mismo tiempo: cuidaba el sacrificio de mi familia. Se aseguraba de que si algo pasaba, todo ese esfuerzo no se perdiera de un día para el otro. Esa figura me marcó. Hoy estoy lejos del campo, pero ese espíritu me sigue. Porque sé lo que cuesta construir algo. <strong>¿Querés que trabajemos juntos para proteger lo que tanto te costó?</strong></p>
       </div>
     </div>
 
@@ -605,7 +613,7 @@ footer{background:#070d1a;padding:40px 24px;}
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <img src="https://mhibjvoqciczpyuadhnr.supabase.co/storage/v1/object/public/Polizas/logo_ra.png.png" alt="RA" class="footer-logo"/>
+    <img src="LOGO_DEFINITIVO.png" alt="RA" class="footer-logo"/>
     <div class="footer-info">
       Rodrigo Ackerman · Productor Asesor de Seguros · Mat. N° 95171 · SSN<br/>
       Franck, Santa Fe · <a href="https://wa.me/5493424681710">+54 342 468-1710</a> · <a href="mailto:pas.rdgackerman@gmail.com">pas.rdgackerman@gmail.com</a>
