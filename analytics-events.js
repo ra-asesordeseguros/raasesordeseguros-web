@@ -82,6 +82,19 @@
     true,
   );
 
+  const enviado = new URLSearchParams(window.location.search).get("enviado");
+  if (enviado === "1") {
+    const leadKey = "ra_ga4_generate_lead:" + window.location.pathname;
+    if (!window.sessionStorage.getItem(leadKey)) {
+      window.sessionStorage.setItem(leadKey, "1");
+      send("generate_lead", {
+        lead_type: "web_form",
+        form_name: "cotizacion:" + pageProduct(),
+        form_location: "confirmation",
+      });
+    }
+  }
+
   const startedForms = new WeakSet();
 
   document.addEventListener(
