@@ -779,5 +779,5 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').classList.t
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');});},{threshold:.1});
 document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
 </script>
-</body>
+<script defer src="/analytics-events.js"></script>\n</body>
 </html>
