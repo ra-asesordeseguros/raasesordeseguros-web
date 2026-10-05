@@ -19,7 +19,6 @@
   };
 
   const visitorId = getOrCreate(window.localStorage, "ra_captacion_visitor_id");
-  const captacionId = getOrCreate(window.sessionStorage, "ra_captacion_id");
   const firstTouchKey = "ra_captacion_first_touch";
   if (!window.sessionStorage.getItem(firstTouchKey)) {
     const qs = new URLSearchParams(window.location.search);
@@ -124,7 +123,7 @@
     field.name = "website";
     field.tabIndex = -1;
     field.autocomplete = "off";
-    field.setAttribute("aria-hidden", "true");
+    field.setAttribute("aria-hidden", "true);
     field.style.position = "absolute";
     field.style.left = "-9999px";
     field.style.width = "1px";
@@ -154,7 +153,9 @@
     const touch = firstTouch();
     const payload = {
       submission_id: uuid(),
-      captacion_id: captacionId,
+      // Cada lead tiene su propia captura. visitor_id conserva continuidad sin bloquear
+      // dos consultas legítimas distintas dentro de la misma sesión.
+      captacion_id: uuid(),
       visitor_id: visitorId,
       nombre: cleanText(data.get("nombre"), 100),
       telefono: cleanText(data.get("telefono"), 40),
