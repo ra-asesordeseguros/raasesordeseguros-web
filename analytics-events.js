@@ -2,8 +2,7 @@
   if (window.__raAnalyticsEventsLoaded) return;
   window.__raAnalyticsEventsLoaded = true;
 
-  // CAPT-011 TEST. Antes de producción se reemplaza por el endpoint PROD.
-  const CAPTACION_ENDPOINT = "https://erpdppymloapnjxghwwb.supabase.co/functions/v1/captacion-web-ingest";
+  const CAPTACION_ENDPOINT = "https://mhibjvoqciczpyuadhnr.supabase.co/functions/v1/captacion-web-ingest";
 
   const cleanText = (value, max = 80) =>
     String(value || "").replace(/\s+/g, " ").trim().slice(0, max);
