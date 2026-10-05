@@ -123,7 +123,7 @@
     field.name = "website";
     field.tabIndex = -1;
     field.autocomplete = "off";
-    field.setAttribute("aria-hidden", "true);
+    field.setAttribute("aria-hidden", "true");
     field.style.position = "absolute";
     field.style.left = "-9999px";
     field.style.width = "1px";
