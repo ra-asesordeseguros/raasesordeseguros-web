@@ -22,5 +22,7 @@ jobs:
       - name: Check analytics-events syntax
         run: node --check analytics-events.js
 
-      - name: Confirm TEST endpoint gate
-        run: grep -F "erpdppymloapnjxghwwb.supabase.co/functions/v1/captacion-web-ingest" analytics-events.js
+      - name: Confirm PROD endpoint gate
+        run: |
+          grep -F "mhibjvoqciczpyuadhnr.supabase.co/functions/v1/captacion-web-ingest" analytics-events.js
+          ! grep -F "erpdppymloapnjxghwwb.supabase.co/functions/v1/captacion-web-ingest" analytics-events.js
