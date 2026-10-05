@@ -1,0 +1,28 @@
+name: CAPT-011 Web CI
+
+on:
+  push:
+    branches:
+      - chatgpt/capt-011-web-ingress
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check analytics-events syntax
+        run: node --check analytics-events.js
+
+      - name: Confirm PROD endpoint gate
+        run: |
+          grep -F "mhibjvoqciczpyuadhnr.supabase.co/functions/v1/captacion-web-ingest" analytics-events.js
+          ! grep -F "erpdppymloapnjxghwwb.supabase.co/functions/v1/captacion-web-ingest" analytics-events.js
