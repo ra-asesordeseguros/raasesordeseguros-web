@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Política de privacidad | RA Backups CRM</title>
+  <meta name="description" content="Cómo RA Backups CRM utiliza el acceso autorizado a Google Drive para respaldos privados cifrados.">
+  <link rel="canonical" href="https://raasesordeseguros.com/ra-backups-crm/privacidad/">
+  <style>
+    :root{color-scheme:light;--azul:#0f2748;--verde:#8dc63f;--gris:#56647a}
+    *{box-sizing:border-box}body{margin:0;font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif;background:#f6f8fb;color:var(--azul)}
+    header{background:var(--azul);color:white;padding:22px max(22px,calc((100% - 850px)/2))}
+    header a{color:white;text-decoration:none;font-weight:700}main{max-width:850px;margin:42px auto;padding:0 22px}
+    article{background:white;border-radius:18px;padding:clamp(24px,5vw,48px);border:1px solid #e3e8ef}
+    h1{font-size:clamp(30px,5vw,44px);line-height:1.15;margin:0 0 14px}h2{margin-top:30px;font-size:20px}
+    .eyebrow{color:#477916;letter-spacing:.08em;text-transform:uppercase;font-weight:800;font-size:12px}
+    p,li{color:#46566d}a{color:#12619a}a:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+    footer{text-align:center;padding:25px;color:var(--gris);font-size:14px}
+  </style>
+</head>
+<body>
+<header><a href="../">RA Backups CRM</a></header>
+<main><article>
+  <div class="eyebrow">Actualizada: 25 de octubre de 2026</div>
+  <h1>Política de privacidad de RA Backups CRM</h1>
+  <p>Esta política describe cómo la herramienta privada <strong>RA Backups CRM</strong>, administrada por Rodrigo Ackerman (RA Asesor de Seguros), utiliza los datos de Google a los que su titular autoriza acceso. Contacto: <a href="mailto:pas.rdgackerman@gmail.com">pas.rdgackerman@gmail.com</a>.</p>
+  <h2>Finalidad y alcance del acceso</h2>
+  <p>La aplicación conecta con Google Drive mediante la autorización OAuth del titular exclusivamente para crear, subir, consultar y verificar archivos de respaldo administrativo del CRM. Solicita el permiso <code>https://www.googleapis.com/auth/drive.file</code>, que limita el acceso a los archivos y carpetas creados o gestionados por esa integración. No utiliza este acceso para revisar mensajes de Gmail, contactos u otros contenidos personales ajenos al respaldo.</p>
+  <h2>Datos que se tratan</h2>
+  <p>La integración puede tratar nombres y metadatos de archivos, identificadores, tamaños y sumas de comprobación de las copias; y credenciales de autorización OAuth necesarias para comunicarse con Google Drive. El contenido de los respaldos procede del CRM administrado por el titular y puede contener datos de su actividad profesional, por lo que se prevé cifrar los paquetes antes de guardarlos en Drive.</p>
+  <h2>Uso, almacenamiento y terceros</h2>
+  <p>Los datos accesibles mediante la API de Google se utilizan solamente para realizar y comprobar estos respaldos. No se venden, comercializan ni utilizan para publicidad o elaboración de perfiles. Los archivos cifrados se almacenan en Google Drive del titular. La automatización prevista utiliza GitHub Actions como entorno temporal de ejecución; allí se gestionan los permisos y credenciales de servicio mediante secretos de configuración y controles de acceso, sin incluirlos en el código público.</p>
+  <h2>Conservación y eliminación</h2>
+  <p>La conservación de cada respaldo depende de la política operativa del titular. El titular puede eliminar las copias desde su Google Drive, y puede revocar el acceso de la integración en la configuración de seguridad de su Cuenta de Google. La revocación impide futuras operaciones autorizadas, pero no elimina automáticamente archivos existentes.</p>
+  <h2>Seguridad</h2>
+  <p>Se aplica un modelo de acceso limitado a archivos de la propia integración y se prevé cifrar los respaldos antes de transferirlos. La página web donde se publica esta política no contiene respaldos, contraseñas, claves de cifrado ni información de asegurados, y no ofrece acceso público al CRM.</p>
+  <h2>Consultas y solicitudes</h2>
+  <p>Para consultar el funcionamiento de esta integración o solicitar información sobre el uso y eliminación de datos, escribí a <a href="mailto:pas.rdgackerman@gmail.com">pas.rdgackerman@gmail.com</a>. Esta política puede actualizarse si cambian los mecanismos de autorización o tratamiento.</p>
+</article></main>
+<footer><a href="../">Volver a RA Backups CRM</a> · <a href="/">Sitio de RA Asesor de Seguros</a></footer>
+</body>
+</html>
